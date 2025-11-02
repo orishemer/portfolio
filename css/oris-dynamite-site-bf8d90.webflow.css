@@ -416,7 +416,7 @@ img {
   margin-right: 20vw;
   padding-left: 0;
   font-size: 2.5rem;
-  font-weight: 400;
+  font-weight: 500;
   -webkit-text-decoration: none;
   text-decoration: none;
   text-decoration-thickness: calc(1em / 20);
@@ -755,6 +755,10 @@ img {
   background-image: url('../images/8.png');
 }
 
+.section-5.workssection._3.drift {
+  background-image: url('../images/IMG_57390.5x.png');
+}
+
 .section-5.workssection._2 {
   background-image: url('../images/Screen-Shot-2024-08-20-at-15.14.11-copy.png');
   background-position: 100%;
@@ -767,17 +771,27 @@ img {
 
 .section-5.workssection._2.beta {
   background-image: url('../images/blabla.jpg');
+  background-repeat: no-repeat;
   background-size: auto 130%;
 }
 
 .section-5.workssection._2.pendulum {
   background-image: url('../images/down.jpg');
+  background-repeat: no-repeat;
+  background-size: auto 300px;
 }
 
 .section-5.workssection._2.swiss {
   background-image: url('../images/IMG_5767-2.jpg');
   background-position: 100%;
+  background-repeat: no-repeat;
   background-size: contain;
+}
+
+.section-5.workssection._2.swiss.drift {
+  background-image: url('../images/cutout0.75x.png');
+  background-repeat: no-repeat;
+  background-size: auto 200%;
 }
 
 .section-5.workssection._2.homonovus {
@@ -795,6 +809,11 @@ img {
 
 .section-5.workssection._2.collected {
   background-image: url('../images/50.75x0.5x.png');
+}
+
+.section-5.workssection._2.canvas {
+  background-repeat: no-repeat;
+  background-size: auto 300px;
 }
 
 .section-5.workssection._4 {
@@ -839,6 +858,12 @@ img {
   align-items: center;
   height: 60vh;
   display: flex;
+}
+
+.section-5._3d {
+  background-image: url('../images/Screenshot-2025-10-07-at-6.04.15-PM.png');
+  background-position: 50%;
+  background-size: contain;
 }
 
 .nav-link {
@@ -1101,13 +1126,16 @@ img {
 .text-block-2.work {
   color: #fff;
   text-align: left;
+  font-family: Roboto, sans-serif;
   font-size: 30px;
+  font-weight: 500;
 }
 
 .text-block-2.work.description {
   text-align: left;
+  margin-top: -2vh;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 300;
   text-decoration: none;
   position: static;
   inset: 0% 0% auto auto;
@@ -1132,29 +1160,35 @@ img {
   justify-content: center;
   align-items: center;
   width: 4vw;
-  height: 3vh;
-  padding-top: 0;
+  height: 3.3vh;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
   font-size: 2vh;
 }
 
 .text-block-2.about.twin {
   text-transform: none;
   margin-left: 0;
-  font-size: 3vh;
+  font-size: 2.5vh;
+  font-weight: 600;
 }
 
 .text-block-2.about.twin.years {
+  height: 17.4994%;
+  padding-top: 0;
   font-size: 2vh;
+  font-weight: 400;
 }
 
 .text-block-2.about.twin._2 {
-  font-size: 2.7vh;
+  font-size: 2vh;
+  font-weight: 500;
 }
 
 .text-block-2.about.text {
   text-transform: none;
   font-size: 3vh;
-  line-height: 5vh;
+  line-height: 4vh;
 }
 
 .text-block-2.about.text.work-description {
@@ -1201,6 +1235,9 @@ img {
 }
 
 .text-block-2.about.text.work-description.process.swiss {
+  margin-bottom: 0;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
   padding-left: 5%;
 }
 
@@ -1215,8 +1252,10 @@ img {
   justify-content: center;
   align-items: center;
   margin-left: 0;
-  font-family: Tahoma, Verdana, Segoe, sans-serif;
+  padding-left: 26px;
+  font-family: Roboto, sans-serif;
   font-size: 2vh;
+  font-weight: 300;
   text-decoration: none;
   position: static;
   inset: 143% 0% 0%;
@@ -1224,6 +1263,7 @@ img {
 
 .text-block-2.about.headline.hello {
   color: #edece3;
+  padding-left: 26px;
 }
 
 .text-block-2.about.workdata {
@@ -1252,6 +1292,7 @@ img {
 .text-block-2.about.location-and-more {
   padding-left: 5px;
   font-size: 3vh;
+  font-weight: 500;
 }
 
 .text-block-2.about.x {
@@ -1310,6 +1351,9 @@ img {
 
 .text-block-2.opening.space.purple:hover {
   background-color: var(--_colors---green);
+  background-image: url('../images/Untitled-2.png');
+  background-position: 0 0;
+  background-size: cover;
 }
 
 .text-block-2.opening.blue {
@@ -1421,9 +1465,11 @@ img {
 }
 
 .div-block-12 {
+  grid-column-gap: 24px;
+  grid-row-gap: 24px;
   color: #0400ff;
   flex-flow: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
   height: 70%;
   text-decoration: none;
@@ -1448,8 +1494,8 @@ img {
   background-color: #3898ec00;
   border: 2px solid #0400ff;
   border-radius: 20px;
-  padding-top: 0;
-  padding-bottom: 0;
+  padding-top: 3px;
+  padding-bottom: 3px;
   padding-right: 13px;
   font-size: 1.4vw;
   text-decoration: none;
@@ -1655,7 +1701,7 @@ img {
 .hs-item {
   box-sizing: border-box;
   aspect-ratio: auto;
-  width: 40vw;
+  width: 35vw;
   height: 100%;
   padding: 0;
 }
@@ -1671,6 +1717,20 @@ img {
 .hs-item.beta.long {
   width: auto;
   height: 100%;
+}
+
+.hs-item.beta.collected {
+  object-fit: contain;
+  width: auto;
+  padding-right: 8px;
+}
+
+.hs-item.beta.hagai {
+  object-fit: cover;
+}
+
+.hs-item.drift {
+  margin: 6px;
 }
 
 .section-18 {
@@ -1868,8 +1928,12 @@ img {
 
 .section-24.swiss {
   border-color: var(--_colors---blue);
-  width: 45%;
-  margin-left: 2vw;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: auto;
+  margin-left: -24vw;
+  padding: 2vh 3vw;
 }
 
 .section-24.swiss.beta {
@@ -1883,6 +1947,16 @@ img {
   padding-top: 1vh;
   padding-left: 2vw;
   padding-right: 2vw;
+}
+
+.section-24.swiss.headline {
+  width: 60%;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.section-24.swiss.text {
+  margin-left: -1vw;
 }
 
 .image-13 {
@@ -1920,10 +1994,10 @@ img {
 }
 
 .section-27 {
-  background-image: url('../images/Screen-Shot-2024-09-18-at-11.13.png');
-  background-position: 100% 100%;
+  background-image: url('../images/IMG_62080.5x.png');
+  background-position: 50%;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   justify-content: flex-start;
   align-items: flex-start;
   width: 100vw;
@@ -1932,10 +2006,14 @@ img {
 }
 
 .section-27.beta {
-  background-image: url('../images/blabla0.75x.png');
-  background-position: 50%;
-  background-size: cover;
-  height: 90vh;
+  grid-column-gap: 80px;
+  grid-row-gap: 80px;
+  background-image: none;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  padding-bottom: 0;
+  display: flex;
 }
 
 .section-27.swiss {
@@ -1944,6 +2022,10 @@ img {
   background-repeat: no-repeat;
   background-size: contain;
   background-attachment: scroll;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  display: flex;
 }
 
 .section-27.collected {
@@ -1951,6 +2033,19 @@ img {
   background-position: 100%;
   background-repeat: repeat-x;
   background-size: 35%;
+}
+
+.section-27.drift {
+  background-image: none;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+  height: auto;
+  display: flex;
+}
+
+.section-27.down {
+  background-image: none;
 }
 
 .div-block-17 {
@@ -2180,13 +2275,13 @@ img {
   align-items: center;
   width: 69%;
   height: 9vh;
-  margin-top: 2vh;
+  margin-top: 1vh;
   margin-left: 30vw;
   margin-right: 1vw;
   font-size: 14%;
   display: flex;
   position: relative;
-  top: -104px;
+  top: -97px;
 }
 
 .section-34 {
@@ -2276,6 +2371,30 @@ img {
 
 .nav-menu-3 {
   background-color: var(--_colors---background);
+}
+
+.image-17 {
+  aspect-ratio: 2 / 3;
+  object-fit: contain;
+  width: 46%;
+  padding: 0;
+  position: static;
+}
+
+.image-18 {
+  vertical-align: baseline;
+  align-self: flex-end;
+  width: 50%;
+  margin-bottom: 0;
+}
+
+.container-25 {
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-left: 15vw;
+  padding-left: 0;
+  display: flex;
 }
 
 @media screen and (max-width: 991px) {
@@ -2470,7 +2589,9 @@ img {
   }
 
   .section-33 {
-    position: fixed;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
     inset: 0% 0% auto;
   }
 
@@ -3229,7 +3350,7 @@ img {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 9vh;
+    height: 8vh;
     padding: 1vh .1vw .4vh;
     display: flex;
     position: sticky;
@@ -3304,7 +3425,7 @@ img {
   }
 
   .text-block-4 {
-    font-size: 5vw;
+    font-size: 4.1vw;
   }
 
   .div-block-21 {
