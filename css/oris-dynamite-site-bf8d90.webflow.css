@@ -2732,18 +2732,21 @@ img {
   }
 
   .trak {
+    width: auto;
     margin-top: 0;
     margin-bottom: 7px;
     padding-top: 0;
   }
 
   .horizontal-scroll {
-    width: 90%;
+    justify-content: space-between;
+    align-items: center;
+    width: 90vw;
     display: flex;
   }
 
   .item.swiss {
-    width: 100%;
+    width: 90vw;
     height: auto;
   }
 
@@ -3124,6 +3127,10 @@ img {
     padding: 15px;
   }
 
+  .container-17.else.b {
+    background-image: none;
+  }
+
   .section-16.data {
     flex-flow: column;
     justify-content: space-between;
@@ -3198,6 +3205,8 @@ img {
   .hs-item.beta.collected {
     object-fit: contain;
     margin-bottom: 6px;
+    padding-right: 0;
+    overflow: visible;
   }
 
   .section-18 {
@@ -3351,8 +3360,8 @@ img {
     grid-row-gap: 5px;
     flex-flow: column;
     justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
+    align-items: center;
+    width: 90vw;
   }
 
   .section-33 {
@@ -3386,7 +3395,7 @@ img {
   }
 
   .mobile-nav {
-    z-index: 200;
+    z-index: 300;
     background-color: var(--_colors---background);
     justify-content: space-between;
     align-items: center;
