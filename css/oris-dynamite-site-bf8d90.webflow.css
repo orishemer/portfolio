@@ -1479,7 +1479,7 @@ img {
 .link {
   color: #0400ff;
   padding-left: 19px;
-  font-size: 17px;
+  font-size: 20px;
   font-weight: 400;
   text-decoration: none;
 }
@@ -2305,7 +2305,9 @@ img {
 }
 
 .mobile-nav {
+  align-self: auto;
   display: none;
+  overflow: hidden;
 }
 
 .image-16 {
@@ -2715,6 +2717,11 @@ img {
   .text-block-2.white {
     height: 80%;
   }
+
+  .tabsection.contact {
+    padding-left: 9px;
+    padding-right: 13px;
+  }
 }
 
 @media screen and (max-width: 479px) {
@@ -2726,6 +2733,7 @@ img {
 
   .trak {
     margin-top: 0;
+    margin-bottom: 7px;
     padding-top: 0;
   }
 
@@ -2954,7 +2962,7 @@ img {
   }
 
   .text-block-2.about.text.work-description {
-    padding-top: 1vh;
+    padding-top: 0;
     padding-bottom: 3vh;
     padding-left: 0%;
     line-height: 3vh;
@@ -2972,9 +2980,16 @@ img {
   .text-block-2.about.text.work-description.process.headline {
     justify-content: center;
     align-items: center;
+    width: 100%;
     padding-top: 0;
     padding-bottom: 0;
-    padding-left: 5%;
+    padding-left: 0%;
+    font-size: 1.3rem;
+    line-height: 3vh;
+  }
+
+  .text-block-2.about.text.work-description.process.swiss {
+    padding-top: 0;
   }
 
   .text-block-2.about.text.work-description.hagai {
@@ -3180,6 +3195,11 @@ img {
     margin-bottom: 41px;
   }
 
+  .hs-item.beta.collected {
+    object-fit: contain;
+    margin-bottom: 6px;
+  }
+
   .section-18 {
     flex-flow: column;
     justify-content: space-between;
@@ -3234,9 +3254,22 @@ img {
     padding: 4vh 1vw 0 7vw;
   }
 
+  .section-24.swiss.headline {
+    width: 80%;
+    margin-bottom: 0;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    padding-left: 0;
+  }
+
+  .section-24.swiss.text {
+    margin-top: 0;
+  }
+
   .section-26 {
     justify-content: flex-start;
     align-items: center;
+    width: auto;
   }
 
   .section-26.x {
@@ -3253,11 +3286,15 @@ img {
   .section-27.beta {
     background-position: 100% 100%;
     background-size: contain;
+    margin-top: 22px;
   }
 
   .section-27.swiss {
     background-image: none;
+    justify-content: center;
+    align-items: center;
     height: 70vh;
+    margin-top: 18px;
   }
 
   .section-29 {
@@ -3338,6 +3375,10 @@ img {
     display: none;
   }
 
+  .section-35 {
+    overflow: hidden;
+  }
+
   .div-block-18, .div-block-19, .div-block-20 {
     justify-content: space-between;
     align-items: flex-start;
@@ -3355,6 +3396,7 @@ img {
     display: flex;
     position: sticky;
     top: 0;
+    overflow: visible;
   }
 
   .tabsection {
@@ -3433,6 +3475,20 @@ img {
     justify-content: space-between;
     align-items: flex-start;
     display: flex;
+  }
+
+  .image-18 {
+    overflow: hidden;
+  }
+
+  .container-25 {
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 
