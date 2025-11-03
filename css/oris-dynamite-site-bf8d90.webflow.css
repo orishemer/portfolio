@@ -1,3 +1,27 @@
+@font-face {
+  font-family: Helvetica;
+  src: url('../fonts/Helvetica.ttc') format("undefined");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: HelveticaSemi;
+  src: url('../fonts/Helvetica.ttc') format("undefined");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Helvetica;
+  src: url('../fonts/Helvetica.ttc') format("undefined");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --_colors---background: #fffcea;
   --_colors---blue: #30f;
@@ -12,21 +36,6 @@
   margin-left: auto;
   margin-right: auto;
   display: block;
-}
-
-.w-layout-layout {
-  grid-row-gap: 20px;
-  grid-column-gap: 20px;
-  grid-auto-columns: 1fr;
-  justify-content: center;
-  padding: 20px;
-}
-
-.w-layout-cell {
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  display: flex;
 }
 
 @media screen and (max-width: 991px) {
@@ -244,7 +253,7 @@ img {
   display: flex;
   position: static;
   inset: auto 0% 0%;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .camera {
@@ -410,13 +419,14 @@ img {
 .text-span-2 {
   color: #0400ff;
   text-align: left;
-  text-transform: none;
+  text-transform: capitalize;
   text-underline-offset: 6px;
   width: auto;
   margin-right: 20vw;
   padding-left: 0;
+  font-family: Helvetica, Arial, sans-serif;
   font-size: 2.5rem;
-  font-weight: 500;
+  font-weight: 400;
   -webkit-text-decoration: none;
   text-decoration: none;
   text-decoration-thickness: calc(1em / 20);
@@ -632,6 +642,7 @@ img {
   color: #f0efe7;
   background-color: #3d06ec;
   border-radius: 12px;
+  margin-top: 1vh;
   padding-left: 14px;
   padding-right: 13px;
 }
@@ -1020,6 +1031,7 @@ img {
   margin-right: 0;
   padding-left: 2vw;
   padding-right: 2vw;
+  font-family: Helvetica, Arial, sans-serif;
   font-size: 2vw;
   line-height: 30px;
 }
@@ -1101,7 +1113,7 @@ img {
   grid-row-gap: 0px;
   color: #eeede4;
   text-align: left;
-  text-transform: uppercase;
+  text-transform: none;
   text-underline-offset: 6px;
   text-decoration: none;
   -webkit-text-decoration-color: var(--_colors---background);
@@ -1117,8 +1129,10 @@ img {
   padding-top: 0;
   padding-left: 4vw;
   padding-right: 4vw;
-  font-size: 2.5rem;
-  line-height: 140%;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 2.2rem;
+  font-weight: 400;
+  line-height: 110%;
   text-decoration-thickness: calc(1em / 20);
   display: flex;
 }
@@ -1126,14 +1140,17 @@ img {
 .text-block-2.work {
   color: #fff;
   text-align: left;
-  font-family: Roboto, sans-serif;
+  text-transform: capitalize;
+  font-family: Helvetica, Arial, sans-serif;
   font-size: 30px;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .text-block-2.work.description {
   text-align: left;
+  text-transform: capitalize;
   margin-top: -2vh;
+  font-family: Helvetica, Arial, sans-serif;
   font-size: 16px;
   font-weight: 300;
   text-decoration: none;
@@ -1142,35 +1159,39 @@ img {
 }
 
 .text-block-2.about {
-  text-transform: uppercase;
+  text-transform: capitalize;
   justify-content: center;
   align-items: center;
   margin-top: 0;
   margin-bottom: 0;
   padding-top: 0;
-  font-family: Roboto, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   font-size: 4vh;
   font-weight: 400;
   line-height: 7vh;
 }
 
 .text-block-2.about.nums {
-  border: 2px solid #30f;
-  border-radius: 25px;
+  border: 2px solid var(--_colors---blue);
+  text-align: center;
+  border-radius: 20px;
   justify-content: center;
   align-items: center;
   width: 4vw;
   height: 3.3vh;
-  padding-top: 1vh;
-  padding-bottom: 1vh;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-right: 0;
+  font-family: Helvetica, Arial, sans-serif;
   font-size: 2vh;
 }
 
 .text-block-2.about.twin {
   text-transform: none;
   margin-left: 0;
+  font-family: Helvetica, Arial, sans-serif;
   font-size: 2.5vh;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .text-block-2.about.twin.years {
@@ -1181,14 +1202,16 @@ img {
 }
 
 .text-block-2.about.twin._2 {
+  margin-bottom: -22px;
   font-size: 2vh;
   font-weight: 500;
 }
 
 .text-block-2.about.text {
   text-transform: none;
-  font-size: 3vh;
-  line-height: 4vh;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 2.5vh;
+  line-height: 3vh;
 }
 
 .text-block-2.about.text.work-description {
@@ -1224,7 +1247,9 @@ img {
 
 .text-block-2.about.text.work-description.process.headline {
   color: var(--_colors---black);
+  text-transform: capitalize;
   width: auto;
+  margin-top: auto;
   margin-bottom: 0;
   padding-top: 0;
   padding-left: 0%;
@@ -1263,7 +1288,16 @@ img {
 
 .text-block-2.about.headline.hello {
   color: #edece3;
+  letter-spacing: .5px;
+  padding-top: .2vh;
   padding-left: 26px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1.8vh;
+  font-weight: 400;
+}
+
+.text-block-2.about.headline.hello.x {
+  color: var(--_colors---blue);
 }
 
 .text-block-2.about.workdata {
@@ -1290,9 +1324,11 @@ img {
 }
 
 .text-block-2.about.location-and-more {
+  text-transform: uppercase;
   padding-left: 5px;
+  font-family: Helvetica, Arial, sans-serif;
   font-size: 3vh;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .text-block-2.about.x {
@@ -1317,7 +1353,7 @@ img {
   margin-top: 0;
   margin-left: 0;
   padding: 2vh 56px;
-  font-family: Roboto, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   font-size: 5vw;
   font-weight: 400;
   display: flex;
@@ -1388,6 +1424,7 @@ img {
   width: auto;
   padding-left: 49px;
   padding-right: 52px;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 .text-block-2.opening.coma {
@@ -1396,6 +1433,7 @@ img {
 
 .text-block-2.opening.and {
   width: auto;
+  font-family: Helvetica, Arial, sans-serif;
   font-size: 5vw;
   font-weight: 400;
 }
@@ -1479,6 +1517,7 @@ img {
 .link {
   color: #0400ff;
   padding-left: 19px;
+  font-family: Helvetica, Arial, sans-serif;
   font-size: 20px;
   font-weight: 400;
   text-decoration: none;
@@ -1497,6 +1536,7 @@ img {
   padding-top: 3px;
   padding-bottom: 3px;
   padding-right: 13px;
+  font-family: Helvetica, Arial, sans-serif;
   font-size: 1.4vw;
   text-decoration: none;
 }
@@ -1745,7 +1785,7 @@ img {
 
 .section-20 {
   z-index: -1;
-  background-image: url('../images/2_1.png');
+  background-image: url('../images/2.png');
   background-position: 100%;
   background-repeat: no-repeat;
   background-size: contain;
@@ -1950,12 +1990,17 @@ img {
 }
 
 .section-24.swiss.headline {
+  border-radius: 16px;
+  justify-content: center;
+  align-items: center;
   width: 60%;
   margin-left: 0;
   padding-left: 0;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 .section-24.swiss.text {
+  border-radius: 20px;
   margin-left: -1vw;
 }
 
@@ -2188,8 +2233,8 @@ img {
 
 .heading-5.m {
   text-align: center;
-  text-transform: uppercase;
-  font-family: Roboto, sans-serif;
+  text-transform: capitalize;
+  font-family: Helvetica, Arial, sans-serif;
   font-size: 25px;
   font-weight: 400;
   line-height: 30px;
@@ -2205,7 +2250,7 @@ img {
 .heading-5.m.f {
   color: var(--_colors---background);
   text-transform: none;
-  font-family: Hanken Grotesk, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   font-size: 50px;
 }
 
@@ -2278,6 +2323,7 @@ img {
   margin-top: 1vh;
   margin-left: 30vw;
   margin-right: 1vw;
+  font-family: Helvetica, Arial, sans-serif;
   font-size: 14%;
   display: flex;
   position: relative;
@@ -2396,6 +2442,14 @@ img {
   align-items: flex-start;
   margin-left: 15vw;
   padding-left: 0;
+  display: flex;
+}
+
+.container-26 {
+  border: 2px solid var(--_colors---blue);
+  border-radius: 20px;
+  padding-left: 0;
+  padding-right: 0;
   display: flex;
 }
 
@@ -2734,7 +2788,7 @@ img {
   .trak {
     width: auto;
     margin-top: 0;
-    margin-bottom: 7px;
+    margin-bottom: 0;
     padding-top: 0;
   }
 
@@ -2912,7 +2966,7 @@ img {
     text-decoration-color: var(--_colors---background);
     height: auto;
     padding: 2vh 4vw;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 
   .text-block-2.work {
@@ -2933,11 +2987,12 @@ img {
   }
 
   .text-block-2.about.nums {
-    border-width: 1.5px;
+    border: 1.5px solid var(--_colors---blue);
+    border-radius: 20px;
     width: 10vw;
     height: 2vh;
     padding-left: 0;
-    font-size: 1.5vh;
+    font-size: .9rem;
   }
 
   .text-block-2.about.twin {
@@ -2948,8 +3003,10 @@ img {
   }
 
   .text-block-2.about.twin.years {
+    padding-top: 2vh;
     font-size: 1.7vh;
     font-weight: 400;
+    line-height: 4vh;
   }
 
   .text-block-2.about.twin._2 {
@@ -2957,16 +3014,16 @@ img {
     padding-bottom: 1vh;
     font-size: 1.7vh;
     font-weight: 400;
-    line-height: 2.6vh;
+    line-height: 2vh;
   }
 
   .text-block-2.about.text {
-    font-size: 1.7vh;
-    line-height: 3vh;
+    font-size: 2vh;
+    line-height: 2.5vh;
   }
 
   .text-block-2.about.text.work-description {
-    padding-top: 0;
+    padding-top: 2vh;
     padding-bottom: 3vh;
     padding-left: 0%;
     line-height: 3vh;
@@ -2985,7 +3042,7 @@ img {
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding-top: 0;
+    padding-top: 1vh;
     padding-bottom: 0;
     padding-left: 0%;
     font-size: 1.3rem;
@@ -3009,8 +3066,13 @@ img {
   }
 
   .text-block-2.about.headline {
+    padding-left: 0;
     font-family: Roboto, sans-serif;
     font-size: 3vw;
+  }
+
+  .text-block-2.about.headline.hello {
+    padding-left: 0;
   }
 
   .text-block-2.about.workdata.white {
@@ -3022,7 +3084,8 @@ img {
   }
 
   .text-block-2.about.location-and-more {
-    font-size: 2vh;
+    font-size: 2.2vh;
+    font-weight: 400;
   }
 
   .text-block-2.opening {
@@ -3031,6 +3094,10 @@ img {
     height: 100%;
     padding-left: 5vw;
     padding-right: 5vw;
+  }
+
+  .text-block-2.opening.space.purple:hover {
+    background-position: 50%;
   }
 
   .text-block-2.opening.blue {
@@ -3094,7 +3161,7 @@ img {
     border-width: 1.5px;
     padding-left: 2vw;
     padding-right: 2vw;
-    font-size: 4vw;
+    font-size: .9rem;
   }
 
   .twin-section {
@@ -3132,6 +3199,13 @@ img {
     background-image: none;
   }
 
+  .container-17.else.h {
+    background-image: none;
+    margin-bottom: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
   .section-16.data {
     flex-flow: column;
     justify-content: space-between;
@@ -3149,8 +3223,7 @@ img {
   }
 
   .body-5.hagai {
-    background-image: linear-gradient(to bottom, null, null), url('../images/IMG_1240small0.3x.png');
-    background-size: auto, cover;
+    background-image: linear-gradient(#fffcea4d, #fffcea4d);
   }
 
   .link-block-2 {
@@ -3205,9 +3278,15 @@ img {
 
   .hs-item.beta.collected {
     object-fit: contain;
+    width: 100%;
     margin-bottom: 6px;
     padding-right: 0;
     overflow: visible;
+  }
+
+  .hs-item.beta.collected.homo {
+    width: 98%;
+    padding-left: 1px;
   }
 
   .section-18 {
@@ -3391,7 +3470,7 @@ img {
 
   .div-block-18, .div-block-19, .div-block-20 {
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     display: flex;
   }
 
@@ -3473,6 +3552,7 @@ img {
     border-color: var(--_colors---purple);
     color: var(--_colors---black);
     width: 24%;
+    padding-right: 9px;
   }
 
   .tabsection.contact:active {
@@ -3489,6 +3569,8 @@ img {
   }
 
   .text-block-4 {
+    padding-top: 18px;
+    padding-left: 16px;
     font-size: 4.1vw;
   }
 
@@ -3520,11 +3602,31 @@ img {
     margin-left: 0;
     margin-right: 0;
   }
+
+  .container-26 {
+    border-width: 0;
+  }
 }
 
-#w-node-c6215523-ca8b-b698-1aec-f5e09bebe885-627c3b8d {
-  grid-template-rows: auto auto auto;
-  grid-template-columns: 1fr 1fr;
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('../fonts/Helvetica.ttc') format('undefined');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
-
-
+@font-face {
+  font-family: 'HelveticaSemi';
+  src: url('../fonts/Helvetica.ttc') format('undefined');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Helvetica';
+  src: url('../fonts/Helvetica.ttc') format('undefined');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
