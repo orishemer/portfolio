@@ -2757,6 +2757,7 @@ img {
   .text-span-2 {
     width: 100%;
     font-size: 6vw;
+    font-weight: 400;
     line-height: 27px;
   }
 
@@ -3424,6 +3425,7 @@ img {
 
   .tabsection.hey {
     color: var(--_colors---black);
+    width: 24%;
   }
 
   .tabsection.hey:active {
@@ -3432,10 +3434,14 @@ img {
   }
 
   .tabsection.about {
-    border-width: 3px;
+    border-width: 1.8px;
     border-color: var(--_colors---green);
     color: var(--_colors---black);
     height: 70%;
+  }
+
+  .tabsection.about:hover {
+    background-color: var(--_colors---green);
   }
 
   .tabsection.about:active {
@@ -3443,9 +3449,15 @@ img {
     color: var(--_colors---background);
   }
 
+  .tabsection.about.w--current {
+    border-width: 3px;
+    width: 24%;
+  }
+
   .tabsection.works {
     border-color: var(--_colors---red);
     color: var(--_colors---black);
+    width: 24%;
     height: 100%;
     padding-left: 1%;
     padding-right: 1%;
@@ -3460,6 +3472,7 @@ img {
     border-width: 2.1px;
     border-color: var(--_colors---purple);
     color: var(--_colors---black);
+    width: 24%;
   }
 
   .tabsection.contact:active {
@@ -3477,6 +3490,14 @@ img {
 
   .text-block-4 {
     font-size: 4.1vw;
+  }
+
+  .text-block-4:hover {
+    color: var(--_colors---black);
+  }
+
+  .text-block-4.about:hover {
+    background-color: #0000;
   }
 
   .div-block-21 {
