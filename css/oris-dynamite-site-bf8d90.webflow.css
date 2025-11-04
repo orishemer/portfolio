@@ -2991,7 +2991,7 @@ img {
     border-radius: 20px;
     width: 10vw;
     height: 2vh;
-    padding-left: 0;
+    padding: 0 1vh .1vh;
     font-size: .9rem;
   }
 
@@ -3023,7 +3023,9 @@ img {
   }
 
   .text-block-2.about.text.work-description {
-    padding-top: 2vh;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1vh;
     padding-bottom: 3vh;
     padding-left: 0%;
     line-height: 3vh;
@@ -3158,10 +3160,13 @@ img {
   }
 
   .button-3 {
+    text-align: center;
     border-width: 1.5px;
-    padding-left: 2vw;
-    padding-right: 2vw;
+    width: 1.8rem;
+    height: 1rem;
+    padding: 0 0;
     font-size: .9rem;
+    line-height: 14px;
   }
 
   .twin-section {
@@ -3373,8 +3378,8 @@ img {
   }
 
   .section-27.beta {
-    background-position: 100% 100%;
-    background-size: contain;
+    background-image: none;
+    height: 70vh;
     margin-top: 22px;
   }
 
@@ -3428,6 +3433,9 @@ img {
   }
 
   .heading-5.m.f {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    font-size: 45px;
     line-height: 50px;
   }
 
