@@ -1222,11 +1222,13 @@ img {
   align-items: flex-start;
   width: 90%;
   height: auto;
+  max-height: 100%;
   padding-top: 0;
   padding-left: 4%;
   padding-right: 4%;
   font-size: 110%;
   line-height: 3vh;
+  overflow: scroll;
 }
 
 .text-block-2.about.text.work-description.below {
@@ -1247,6 +1249,7 @@ img {
 
 .text-block-2.about.text.work-description.process.headline {
   color: var(--_colors---black);
+  text-align: center;
   text-transform: capitalize;
   width: auto;
   margin-top: auto;
@@ -2055,8 +2058,9 @@ img {
   grid-row-gap: 80px;
   background-image: none;
   justify-content: center;
-  align-items: center;
-  height: 80vh;
+  align-items: flex-start;
+  height: 70vh;
+  padding-top: 0;
   padding-bottom: 0;
   display: flex;
 }
