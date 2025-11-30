@@ -766,6 +766,10 @@ img {
   background-image: url('../images/8.png');
 }
 
+.section-5.workssection._3.canvas.dog {
+  background-image: url('../images/IMG_714600.5x.png');
+}
+
 .section-5.workssection._3.drift {
   background-image: url('../images/IMG_57390.5x.png');
 }
@@ -823,8 +827,13 @@ img {
 }
 
 .section-5.workssection._2.canvas {
+  background-image: url('../images/Screen-Shot-2024-08-20-at-15.14.11-copy.png');
   background-repeat: no-repeat;
   background-size: auto 300px;
+}
+
+.section-5.workssection._2.canvas.dog {
+  background-image: url('../images/IMG_694000.5x.png');
 }
 
 .section-5.workssection._4 {
