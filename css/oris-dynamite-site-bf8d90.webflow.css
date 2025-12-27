@@ -2567,6 +2567,10 @@ img {
   width: 25%;
 }
 
+.process._1.c {
+  width: 69%;
+}
+
 .process._2 {
   aspect-ratio: 3;
   width: 30vw;
@@ -2580,6 +2584,7 @@ img {
 
 .process._2._4.heyyou {
   aspect-ratio: auto;
+  width: 95%;
 }
 
 .process._2.k {
@@ -2589,7 +2594,7 @@ img {
 
 .process._2.j {
   aspect-ratio: auto;
-  width: 60vw;
+  width: 68%;
 }
 
 .process._3 {
@@ -2605,6 +2610,10 @@ img {
 
 .process.b {
   width: 25%;
+}
+
+.process.b.c {
+  width: 70%;
 }
 
 .section-36 {
@@ -2708,7 +2717,7 @@ img {
   flex-flow: column;
   justify-content: space-between;
   align-items: center;
-  width: 40%;
+  width: 30%;
   margin-left: 2vw;
   margin-right: 5vw;
   padding-top: 31px;
