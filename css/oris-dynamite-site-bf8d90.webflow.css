@@ -2604,7 +2604,7 @@ img {
 
 .process.a {
   aspect-ratio: 2;
-  width: 70%;
+  width: 90%;
   padding: 0;
 }
 
@@ -2661,9 +2661,11 @@ img {
   justify-content: center;
   align-items: center;
   width: 98vw;
+  height: 50vh;
   margin-top: 2vh;
   margin-left: 1vw;
   padding-bottom: 0;
+  overflow: clip;
 }
 
 .section-37.a.two {
@@ -2718,10 +2720,11 @@ img {
   justify-content: space-between;
   align-items: center;
   width: 30%;
-  margin-left: 2vw;
-  margin-right: 5vw;
+  margin-left: 1vw;
+  margin-right: 0;
   padding-top: 31px;
   padding-bottom: 31px;
+  padding-right: 1vw;
   display: flex;
 }
 
@@ -2746,6 +2749,33 @@ img {
   justify-content: center;
   align-items: center;
   display: flex;
+}
+
+.loomings {
+  width: 60%;
+  height: 100%;
+  padding: 0;
+  overflow: visible;
+}
+
+.section-41 {
+  grid-column-gap: 25px;
+  grid-row-gap: 25px;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  display: flex;
+}
+
+.container-29 {
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  height: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  display: flex;
+  overflow: clip;
 }
 
 @media screen and (max-width: 991px) {
