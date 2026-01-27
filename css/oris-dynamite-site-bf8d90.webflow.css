@@ -25,10 +25,10 @@
 :root {
   --_colors---background: #fffcea;
   --_colors---blue: #30f;
+  --_colors---green: #d7f57a;
   --_colors---black: black;
   --_colors---purple: #c9aae0;
   --_colors---red: #eb5640;
-  --_colors---green: #d7f57a;
 }
 
 .w-layout-blockcontainer {
@@ -475,6 +475,7 @@ img {
 }
 
 .section-5.aboutsection.hedline.education {
+  background-color: var(--_colors---green);
   justify-content: center;
   align-items: center;
   display: flex;
@@ -1265,7 +1266,7 @@ img {
   padding-right: 4%;
   font-size: 110%;
   line-height: 3vh;
-  overflow: scroll;
+  overflow: visible;
 }
 
 .text-block-2.about.text.work-description.below {
@@ -2082,6 +2083,7 @@ img {
   justify-content: flex-start;
   align-items: center;
   width: 50%;
+  overflow: hidden;
 }
 
 .section-24.lamp {
@@ -2089,6 +2091,7 @@ img {
   grid-row-gap: 5%;
   justify-content: flex-start;
   align-items: center;
+  overflow: hidden;
 }
 
 .image-13 {
@@ -2258,6 +2261,7 @@ img {
   width: 60vw;
   height: 80vh;
   font-size: 100vh;
+  overflow: hidden;
 }
 
 .section-30 {
@@ -2555,6 +2559,7 @@ img {
 }
 
 .image-20 {
+  aspect-ratio: auto;
   border-radius: 20px;
 }
 
