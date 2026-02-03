@@ -1991,8 +1991,8 @@ img {
 }
 
 .section-22.face {
-  grid-column-gap: 16vh;
-  grid-row-gap: 16vh;
+  grid-column-gap: 3vh;
+  grid-row-gap: 3vh;
   flex-flow: column;
   justify-content: flex-start;
   align-items: center;
@@ -3388,6 +3388,11 @@ img {
     line-height: 3vh;
   }
 
+  .text-block-2.about.text.work-description.process.headline.x {
+    margin-top: 0;
+    display: block;
+  }
+
   .text-block-2.about.text.work-description.process.swiss {
     padding-top: 0;
   }
@@ -3398,7 +3403,7 @@ img {
     border-radius: 20px;
     justify-content: center;
     align-items: center;
-    width: 95%;
+    width: 100%;
     margin-bottom: 20px;
     padding: 2vh 5% 0;
     line-height: 2.5vh;
@@ -3664,7 +3669,8 @@ img {
 
   .section-22.face {
     flex-flow: column;
-    height: 11vh;
+    width: 100%;
+    height: 50vh;
     margin-top: 0;
   }
 
@@ -3706,6 +3712,10 @@ img {
     margin-top: 0;
   }
 
+  .section-24.pen {
+    width: 99%;
+  }
+
   .section-26 {
     justify-content: flex-start;
     align-items: center;
@@ -3742,9 +3752,12 @@ img {
   }
 
   .section-29 {
-    width: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100vw;
     height: 50vh;
     margin-top: 0;
+    position: static;
   }
 
   .section-30 {
@@ -3753,10 +3766,11 @@ img {
     align-items: center;
     width: 100%;
     margin-top: 0;
+    padding-left: 0;
   }
 
   .image-15 {
-    display: none;
+    display: block;
   }
 
   .section-31 {
@@ -3947,6 +3961,10 @@ img {
     display: flex;
   }
 
+  .image-17, .image-17.dog {
+    width: 90%;
+  }
+
   .image-18 {
     overflow: hidden;
   }
@@ -3965,6 +3983,10 @@ img {
     border-width: 0;
   }
 
+  .image-20 {
+    overflow: visible;
+  }
+
   .process {
     width: 100%;
   }
@@ -3973,8 +3995,12 @@ img {
     width: 80%;
   }
 
-  .process._2 {
+  .process._1.c {
     width: 100%;
+  }
+
+  .process._2 {
+    width: 98%;
   }
 
   .process._2._4.heyyou {
@@ -4017,10 +4043,13 @@ img {
 
   .section-37.b {
     flex-flow: column;
+    margin-top: 3vh;
   }
 
   .section-37.b.c.top {
     width: 98vw;
+    margin-top: 1vh;
+    padding-left: 2vw;
   }
 
   .section-37.c {
@@ -4046,6 +4075,20 @@ img {
   .section-39 {
     flex-flow: column;
     width: 98vw;
+  }
+
+  .loomings {
+    width: 100%;
+  }
+
+  .section-41 {
+    flex-flow: column;
+    height: 100vh;
+    margin-top: 23px;
+  }
+
+  .container-29 {
+    width: 100%;
   }
 }
 
