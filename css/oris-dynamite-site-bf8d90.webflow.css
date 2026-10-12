@@ -1,6 +1,7 @@
 @font-face {
   font-family: Helvetica;
-  src: url('../fonts/Helvetica.ttc') format("undefined");
+  src: url('../fonts/helvetica-regular.woff2') format("woff2"),
+       url('../fonts/helvetica-regular.woff') format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -8,7 +9,8 @@
 
 @font-face {
   font-family: HelveticaSemi;
-  src: url('../fonts/Helvetica.ttc') format("undefined");
+  src: url('../fonts/helvetica-bold.woff2') format("woff2"),
+       url('../fonts/helvetica-bold.woff') format("woff");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -16,7 +18,8 @@
 
 @font-face {
   font-family: Helvetica;
-  src: url('../fonts/Helvetica.ttc') format("undefined");
+  src: url('../fonts/helvetica-bold.woff2') format("woff2"),
+       url('../fonts/helvetica-bold.woff') format("woff");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -188,14 +191,14 @@ img {
 }
 
 ._2pichoverblank.background {
-  background-image: url('../images/1_3_11zon.png');
+  background-image: url('../images/bg/1_3_11zon.jpg');
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 ._2pichoverblank.swissbig {
-  background-image: url('../images/IMG_5767.jpg');
+  background-image: url('../images/bg/IMG_5767.jpg');
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: contain;
@@ -210,7 +213,7 @@ img {
 }
 
 ._1backblankwithanimation.lihipic {
-  background-image: url('../images/lihiNoBack.png');
+  background-image: url('../images/bg/lihiNoBack.png');
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -218,7 +221,7 @@ img {
 
 ._1backblankwithanimation.swiss-back {
   object-fit: fill;
-  background-image: url('../images/IMG_5755small.png');
+  background-image: url('../images/bg/IMG_5755small.png');
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: auto 80%;
@@ -690,7 +693,7 @@ img {
 
 .section-5.workssection.homonovus:hover {
   background-color: #934f4e;
-  background-image: url('../images/1_3_11zon.png');
+  background-image: url('../images/bg/1_3_11zon.jpg');
   background-position: 100%;
   background-repeat: no-repeat;
   background-size: contain;
@@ -728,7 +731,7 @@ img {
 }
 
 .section-5.workssection._3 {
-  background-image: url('../images/IMG_5767-3.jpg');
+  background-image: url('../images/bg/IMG_5767-3.jpg');
   background-position: 100%;
   background-repeat: no-repeat;
   background-size: contain;
@@ -739,13 +742,13 @@ img {
 }
 
 .section-5.workssection._3.beta {
-  background-image: url('../images/manySuts.jpg');
+  background-image: url('../images/bg/manySuts.jpg');
   background-position: 100%;
   background-size: contain;
 }
 
 .section-5.workssection._3.collected {
-  background-image: url('../images/10.5x.png');
+  background-image: url('../images/bg/10.5x.jpg');
   background-position: 100%;
   background-repeat: repeat;
   background-size: contain;
@@ -756,44 +759,44 @@ img {
 }
 
 .section-5.workssection._3.homonovus {
-  background-image: url('../images/pgOriShemer3.jpg');
+  background-image: url('../images/bg/pgOriShemer3.jpg');
   background-position: 100%;
 }
 
 .section-5.workssection._3.emotiontype {
-  background-image: url('../images/Screen-Shot-2024-08-20-at-14.56.40.png');
+  background-image: url('../images/bg/Screen-Shot-2024-08-20-at-14.56.40.jpg');
   background-position: 100%;
   background-size: contain;
 }
 
 .section-5.workssection._3.pendelum {
-  background-image: url('../images/IMG_5767-3.jpg');
+  background-image: url('../images/bg/IMG_5767-3.jpg');
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 .section-5.workssection._3.canvas {
-  background-image: url('../images/8.png');
+  background-image: url('../images/bg/8.jpg');
 }
 
 .section-5.workssection._3.canvas.dog {
-  background-image: url('../images/IMG_718900.5x.png');
+  background-image: url('../images/bg/IMG_718900.5x.jpg');
 }
 
 .section-5.workssection._3.canvas.dog.type {
-  background-image: url('../images/ef6011a0-6f54-4e79-88e6-fe606dcd6794.png');
+  background-image: url('../images/bg/ef6011a0-6f54-4e79-88e6-fe606dcd6794.jpg');
 }
 
 .section-5.workssection._3.drift {
-  background-image: url('../images/IMG_57390.5x.png');
+  background-image: url('../images/bg/IMG_57390.5x.jpg');
 }
 
 .section-5.workssection._3.sleeve {
-  background-image: url('../images/3.png');
+  background-image: url('../images/bg/3.jpg');
 }
 
 .section-5.workssection._2 {
-  background-image: url('../images/Screen-Shot-2024-08-20-at-15.14.11-copy.png');
+  background-image: url('../images/bg/Screen-Shot-2024-08-20-at-15.14.11-copy.jpg');
   background-position: 100%;
   background-size: contain;
   height: 23vh;
@@ -803,7 +806,7 @@ img {
 }
 
 .section-5.workssection._2.beta {
-  background-image: url('../images/blabla.jpg');
+  background-image: url('../images/bg/blabla.jpg');
   background-repeat: no-repeat;
   background-size: auto 130%;
 }
@@ -815,53 +818,53 @@ img {
 }
 
 .section-5.workssection._2.swiss {
-  background-image: url('../images/IMG_5767-2.jpg');
+  background-image: url('../images/bg/IMG_5767-2.jpg');
   background-position: 100%;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 .section-5.workssection._2.swiss.drift {
-  background-image: url('../images/cutout0.75x.png');
+  background-image: url('../images/bg/cutout0.75x.jpg');
   background-repeat: no-repeat;
   background-size: auto 200%;
 }
 
 .section-5.workssection._2.homonovus {
-  background-image: url('../images/3_1_11zon.png');
+  background-image: url('../images/bg/3_1_11zon.jpg');
   background-position: 100%;
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 .section-5.workssection._2.emotiontype {
-  background-image: url('../images/Screen-Shot-2024-08-20-at-15.01.02.png');
+  background-image: url('../images/Screen-Shot-2024-08-20-at-15.01.02.jpg');
   background-position: 100%;
   background-size: contain;
 }
 
 .section-5.workssection._2.collected {
-  background-image: url('../images/50.75x0.5x.png');
+  background-image: url('../images/bg/50.75x0.5x.jpg');
 }
 
 .section-5.workssection._2.canvas {
-  background-image: url('../images/Screen-Shot-2024-08-20-at-15.14.11-copy.png');
+  background-image: url('../images/bg/Screen-Shot-2024-08-20-at-15.14.11-copy.jpg');
   background-repeat: no-repeat;
   background-size: auto 300px;
 }
 
 .section-5.workssection._2.canvas.dog {
-  background-image: url('../images/IMG_694000.5x.png');
+  background-image: url('../images/bg/IMG_694000.5x.jpg');
 }
 
 .section-5.workssection._2.canvas.type {
-  background-image: url('../images/Untitled-1.png');
+  background-image: url('../images/bg/Untitled-1.jpg');
   background-position: 100%;
   background-size: 30%;
 }
 
 .section-5.workssection._2.sleeve {
-  background-image: url('../images/2_1.png');
+  background-image: url('../images/bg/2_1.jpg');
 }
 
 .section-5.workssection._4 {
@@ -909,7 +912,7 @@ img {
 }
 
 .section-5._3d {
-  background-image: url('../images/Screenshot-2025-10-07-at-6.04.15-PM.png');
+  background-image: url('../images/bg/Screenshot-2025-10-07-at-6.04.15-PM.jpg');
   background-position: 50%;
   background-size: contain;
 }
@@ -1722,7 +1725,7 @@ img {
 }
 
 .body-5.hagai {
-  background-image: linear-gradient(#fffcea80, #fffcea80), url('../images/IMG_1240small0.3x.png');
+  background-image: linear-gradient(#fffcea80, #fffcea80), url('../images/bg/IMG_1240small0.3x.png');
   background-position: 0 0, 100%;
   background-repeat: repeat, no-repeat;
   background-size: auto, contain;
@@ -1851,7 +1854,7 @@ img {
 
 .section-20 {
   z-index: -1;
-  background-image: url('../images/2.png');
+  background-image: url('../images/2.jpg');
   background-position: 100%;
   background-repeat: no-repeat;
   background-size: contain;
@@ -2130,7 +2133,7 @@ img {
 }
 
 .section-27 {
-  background-image: url('../images/IMG_62080.5x.png');
+  background-image: url('../images/bg/IMG_62080.5x.jpg');
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -2154,7 +2157,7 @@ img {
 }
 
 .section-27.swiss {
-  background-image: url('../images/Screen-Shot-2024-09-18-at-11.13.png');
+  background-image: url('../images/bg/Screen-Shot-2024-09-18-at-11.13.png');
   background-position: 50% 100%;
   background-repeat: no-repeat;
   background-size: contain;
@@ -2166,7 +2169,7 @@ img {
 }
 
 .section-27.collected {
-  background-image: url('../images/cow.png');
+  background-image: url('../images/bg/cow.png');
   background-position: 100%;
   background-repeat: repeat-x;
   background-size: 35%;
@@ -2255,7 +2258,7 @@ img {
 }
 
 .section-29 {
-  background-image: url('../images/withText.png');
+  background-image: url('../images/bg/withText.png');
   background-position: 50%;
   background-repeat: repeat;
   background-size: contain;
@@ -2325,6 +2328,8 @@ img {
 .heading-5 {
   margin-top: 0;
   margin-bottom: 0;
+  font-size: 38px;
+  line-height: 44px;
   font-weight: 300;
 }
 
@@ -2476,7 +2481,7 @@ img {
 .container-24 {
   grid-column-gap: 0px;
   grid-row-gap: 0px;
-  background-image: url('../images/screen3.png');
+  background-image: url('../images/bg/screen3.png');
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: contain;
@@ -2490,7 +2495,7 @@ img {
 }
 
 .container-24:hover {
-  background-image: url('../images/screen4.png');
+  background-image: url('../images/bg/screen4.png');
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: contain;
@@ -2903,7 +2908,7 @@ img {
   }
 
   .body-5.hagai {
-    background-image: linear-gradient(#fffcea4d, #fffcea4d), url('../images/IMG_1240small0.3x.png');
+    background-image: linear-gradient(#fffcea4d, #fffcea4d), url('../images/bg/IMG_1240small0.3x.png');
     background-position: 0 0, 100%;
     background-repeat: repeat, no-repeat;
     background-size: auto, contain;
@@ -2957,7 +2962,7 @@ img {
   }
 
   .section-27.beta {
-    background-image: url('../images/blabla0.75x.png');
+    background-image: url('../images/bg/blabla0.75x.png');
     background-position: 0 0;
     background-size: cover;
     height: 80vh;
@@ -3538,7 +3543,7 @@ img {
   }
 
   .container-17.else {
-    background-image: url('../images/Screen-Shot-2024-09-18-at-11.13.png');
+    background-image: url('../images/bg/Screen-Shot-2024-09-18-at-11.13.png');
     background-position: 50% 100%;
     background-repeat: no-repeat;
     background-size: contain;
@@ -4113,4 +4118,19 @@ img {
   font-weight: 600;
   font-style: normal;
   font-display: swap;
+}
+
+/* --- hand-edited additions (not from Webflow export) --- */
+
+/* Harvard row: single full-width card above the two existing degrees */
+.section-5.aboutsection.twin.edu-solo {
+  height: auto;
+  margin-bottom: 1.6vh;
+}
+
+.section-5.aboutsection.twin.edu-solo .twin-section {
+  width: 100%;
+  height: auto;
+  padding: 2.6vh 2vw;
+  text-align: center;
 }
