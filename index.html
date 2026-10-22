@@ -336,5 +336,64 @@
     });
   });
 </script>
+<script>
+// Side nav rail: mark the tab for the section currently in view.
+// CSS gives that tab 50vh and the other three (50/3)vh each.
+// Driven by IntersectionObserver rather than scroll events: Webflow's
+// scroll interactions mean a plain window 'scroll' listener does not
+// reliably fire here.
+(function navRailSizing() {
+  var PAIRS = [
+    ['hello-section',   '.div-block-17.hello'],
+    ['about-section',   '.div-block-17.about'],
+    ['works-section',   '.div-block-17.works'],
+    ['contact-section', '.div-block-17.contact']
+  ].map(function (p) {
+    return { section: document.getElementById(p[0]), tab: document.querySelector(p[1]) };
+  }).filter(function (p) { return p.section && p.tab; });
+
+  if (PAIRS.length !== 4) return;
+
+  // sits at the very end of the document, so we can tell when the
+  // reader has hit the bottom and Contact should be the current tab
+  var end = document.createElement('div');
+  end.setAttribute('aria-hidden', 'true');
+  end.style.cssText = 'width:1px;height:1px;margin:0;padding:0;pointer-events:none;';
+  document.body.appendChild(end);
+
+  var current = null;
+
+  function pick() {
+    if (end.getBoundingClientRect().top <= window.innerHeight) {
+      return PAIRS[PAIRS.length - 1];
+    }
+    var probe = window.innerHeight * 0.4;
+    var found = PAIRS[0];
+    for (var i = 0; i < PAIRS.length; i++) {
+      if (PAIRS[i].section.getBoundingClientRect().top <= probe) found = PAIRS[i];
+    }
+    return found;
+  }
+
+  function apply() {
+    var next = pick();
+    if (next === current) return;
+    PAIRS.forEach(function (p) { p.tab.classList.toggle('is-current', p === next); });
+    current = next;
+  }
+
+  if ('IntersectionObserver' in window) {
+    // a thin band across 40% of the viewport; whichever section crosses
+    // it changes which tab is current
+    var band = new IntersectionObserver(apply, { rootMargin: '-40% 0px -60% 0px' });
+    PAIRS.forEach(function (p) { band.observe(p.section); });
+    new IntersectionObserver(apply).observe(end);
+  }
+
+  apply();
+  window.addEventListener('scroll', apply, { passive: true });
+  window.addEventListener('resize', apply, { passive: true });
+})();
+</script>
 </body>
 </html>

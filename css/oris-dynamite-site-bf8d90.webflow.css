@@ -4134,3 +4134,25 @@ img {
   padding: 2.6vh 2vw;
   text-align: center;
 }
+
+/* Side nav rail: the four tabs always fill exactly 100vh, so Contact
+   sits on the bottom edge. The active section's tab takes half the
+   height; the other three split the rest equally (50vh / 3 each).
+   !important is required because Webflow's scroll interaction writes an
+   inline height on each tab. No transition here on purpose: Webflow
+   rewrites that inline height every animation frame, which restarts a
+   height transition continuously and leaves the tab stuck at the wrong
+   size. */
+.navbar-4 .container-19 {
+  height: 100vh !important;
+  justify-content: flex-start;
+}
+
+.navbar-4 .div-block-17 {
+  flex: 0 0 auto;
+  height: calc(50vh / 3) !important;
+}
+
+.navbar-4 .div-block-17.is-current {
+  height: 50vh !important;
+}
