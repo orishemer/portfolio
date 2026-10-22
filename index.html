@@ -107,7 +107,7 @@
     </section>
     <section class="section-5 aboutsection twin edu-solo">
       <section class="twin-section">
-        <div class="text-block-2 about twin">MASTER IN DESIGN ENGINEERING (MDE)<br></div>
+        <div class="text-block-2 about twin">MASTER IN DESIGN ENGINEERING<br></div>
         <div class="text-block-2 about twin _2">Harvard University</div>
         <div class="text-block-2 about twin years">2026 - 2028</div>
       </section>
@@ -337,11 +337,16 @@
   });
 </script>
 <script>
-// Side nav rail: mark the tab for the section currently in view.
-// CSS gives that tab 50vh and the other three (50/3)vh each.
-// Driven by IntersectionObserver rather than scroll events: Webflow's
-// scroll interactions mean a plain window 'scroll' listener does not
-// reliably fire here.
+// Side nav rail: each tab's height tracks how much of the viewport its
+// section currently covers, so the rail changes continuously as you
+// scroll and shows two grown tabs when two sections share the screen.
+//
+//   height = 50vh/3  +  100vh/3 * share
+//
+// where share is that section's fraction of the visible viewport. The
+// shares sum to 1, so the four heights always sum to 100vh and Contact
+// stays on the bottom edge. A section filling the screen gives 50vh;
+// two sections splitting it evenly give 33.3vh each.
 (function navRailSizing() {
   var PAIRS = [
     ['hello-section',   '.div-block-17.hello'],
@@ -354,45 +359,63 @@
 
   if (PAIRS.length !== 4) return;
 
-  // sits at the very end of the document, so we can tell when the
-  // reader has hit the bottom and Contact should be the current tab
-  var end = document.createElement('div');
-  end.setAttribute('aria-hidden', 'true');
-  end.style.cssText = 'width:1px;height:1px;margin:0;padding:0;pointer-events:none;';
-  document.body.appendChild(end);
+  var BASE = 1 / 6;   // 50vh/3, as a fraction of the viewport
+  var SPAN = 1 / 3;   // 100vh/3
+  var last = [];
 
-  var current = null;
+  function frame() {
+    var vh = window.innerHeight;
+    var shares = PAIRS.map(function (p) {
+      var r = p.section.getBoundingClientRect();
+      return Math.max(0, Math.min(r.bottom, vh) - Math.max(r.top, 0));
+    });
+    var covered = shares.reduce(function (a, b) { return a + b; }, 0);
 
-  function pick() {
-    if (end.getBoundingClientRect().top <= window.innerHeight) {
-      return PAIRS[PAIRS.length - 1];
+    // gaps between sections, or rubber-band scrolling, can leave part of
+    // the viewport uncovered; normalising keeps the rail exactly 100vh
+    if (covered > 0) {
+      shares = shares.map(function (v) { return v / covered; });
+    } else {
+      shares = [0.25, 0.25, 0.25, 0.25];
     }
-    var probe = window.innerHeight * 0.4;
-    var found = PAIRS[0];
+
+    var used = 0;
     for (var i = 0; i < PAIRS.length; i++) {
-      if (PAIRS[i].section.getBoundingClientRect().top <= probe) found = PAIRS[i];
+      // the last tab absorbs rounding so the column lands exactly on 100vh
+      var h = (i === PAIRS.length - 1)
+        ? vh - used
+        : Math.round(vh * (BASE + SPAN * shares[i]));
+      used += h;
+      if (last[i] !== h) {
+        PAIRS[i].tab.style.setProperty('--tab-h', h + 'px');
+        last[i] = h;
+      }
     }
-    return found;
+
+    // keep a class on the most visible section's tab, for styling hooks
+    var top = 0;
+    for (var j = 1; j < shares.length; j++) if (shares[j] > shares[top]) top = j;
+    PAIRS.forEach(function (p, k) { p.tab.classList.toggle('is-current', k === top); });
   }
 
-  function apply() {
-    var next = pick();
-    if (next === current) return;
-    PAIRS.forEach(function (p) { p.tab.classList.toggle('is-current', p === next); });
-    current = next;
-  }
+  // requestAnimationFrame gives frame-accurate tracking while the page is
+  // on screen, but it is paused whenever the page is hidden, and a plain
+  // window 'scroll' event does not reliably fire on this page. A fine
+  // grained IntersectionObserver covers both cases.
+  function loop() { frame(); requestAnimationFrame(loop); }
 
   if ('IntersectionObserver' in window) {
-    // a thin band across 40% of the viewport; whichever section crosses
-    // it changes which tab is current
-    var band = new IntersectionObserver(apply, { rootMargin: '-40% 0px -60% 0px' });
-    PAIRS.forEach(function (p) { band.observe(p.section); });
-    new IntersectionObserver(apply).observe(end);
+    var steps = [];
+    for (var t = 0; t <= 1.0001; t += 0.005) steps.push(Math.min(1, t));
+    var io = new IntersectionObserver(frame, { threshold: steps });
+    PAIRS.forEach(function (p) { io.observe(p.section); });
   }
 
-  apply();
-  window.addEventListener('scroll', apply, { passive: true });
-  window.addEventListener('resize', apply, { passive: true });
+  window.addEventListener('scroll', frame, { passive: true });
+  window.addEventListener('resize', frame, { passive: true });
+
+  frame();
+  requestAnimationFrame(loop);
 })();
 </script>
 </body>

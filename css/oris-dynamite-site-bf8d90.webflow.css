@@ -4135,14 +4135,22 @@ img {
   text-align: center;
 }
 
-/* Side nav rail: the four tabs always fill exactly 100vh, so Contact
-   sits on the bottom edge. The active section's tab takes half the
-   height; the other three split the rest equally (50vh / 3 each).
-   !important is required because Webflow's scroll interaction writes an
-   inline height on each tab. No transition here on purpose: Webflow
-   rewrites that inline height every animation frame, which restarts a
-   height transition continuously and leaves the tab stuck at the wrong
-   size. */
+/* the university name carries this card, so set it above the degree line */
+.section-5.aboutsection.twin.edu-solo .text-block-2.about.twin._2 {
+  margin-bottom: 0;
+  font-size: 3.4vh;
+  font-weight: 600;
+}
+
+/* Side nav rail: the four tabs always add up to exactly 100vh, so
+   Contact sits on the bottom edge. Each tab's height tracks how much of
+   the viewport its section currently covers, so two sections on screen
+   at once show as two grown tabs.
+   The script sets --tab-h per tab. It goes through a custom property
+   rather than an inline height because Webflow's scroll interaction
+   writes its own inline height on every animation frame; !important
+   here beats that, and Webflow never touches --tab-h, so the two do not
+   race. Without JavaScript the fallback splits the rail evenly. */
 .navbar-4 .container-19 {
   height: 100vh !important;
   justify-content: flex-start;
@@ -4150,9 +4158,5 @@ img {
 
 .navbar-4 .div-block-17 {
   flex: 0 0 auto;
-  height: calc(50vh / 3) !important;
-}
-
-.navbar-4 .div-block-17.is-current {
-  height: 50vh !important;
+  height: var(--tab-h, 25vh) !important;
 }
