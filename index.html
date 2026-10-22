@@ -32,6 +32,127 @@
     max-height: 100vh;
   }
 </style>
+<style id="fl-folders">
+  /* Works as a grid of identical folders, all one colour. Pointing at
+     one lifts its flap and slides the work out of it. */
+  .fl-wrap {
+    --fl: var(--_colors---red);
+    --fl-ink: var(--_colors---background);
+    width: 82vw;
+    margin-left: 17vw;
+    padding: 5vh 0 3vh;
+  }
+
+  .fl-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 42px 26px;
+  }
+
+  .fl {
+    position: relative;
+    display: block;
+    aspect-ratio: 5 / 4;
+    text-decoration: none;
+    transform: translateY(0);
+    transition: transform .35s cubic-bezier(.2,.8,.26,1);
+  }
+  .fl:hover, .fl:focus-visible { transform: translateY(-8px) }
+  .fl:focus-visible { outline: none }
+  .fl:focus-visible .fl-front { box-shadow: 0 0 0 3px var(--_colors---black) }
+
+  /* the back of the folder, carrying the tab */
+  .fl::before {
+    content: "";
+    position: absolute;
+    inset: 9% 0 0 0;
+    border: 1px solid var(--_colors---black);
+    border-radius: 3px 12px 12px 12px;
+    background: var(--fl);
+  }
+  .fl::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 33%;
+    height: 11%;
+    border: 1px solid var(--_colors---black);
+    border-bottom: 0;
+    border-radius: 9px 9px 0 0;
+    background: var(--fl);
+  }
+
+  .fl-tab {
+    position: absolute;
+    left: 14px;
+    top: 2px;
+    /* below the sheets, so they cover the number as they slide out */
+    z-index: 1;
+    color: var(--fl-ink);
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: .12em;
+  }
+
+  /* the work, tucked inside until the folder opens */
+  .fl-sheet {
+    position: absolute;
+    left: 5%;
+    right: 9%;
+    top: 14%;
+    height: 68%;
+    z-index: 2;
+    border-radius: 3px;
+    /* cover, anchored to the top: the sheet fills edge to edge with no
+       white margin, and the top of the work is the part that peeks out */
+    background: #fff var(--sheet-pos, top center)/cover no-repeat;
+    transform: translateY(16%);
+    transition: transform .45s cubic-bezier(.2,.8,.26,1);
+  }
+  .fl-sheet.two { left: 18%; right: 2%; height: 60%; z-index: 1 }
+  .fl:hover .fl-sheet,
+  .fl:focus-visible .fl-sheet { transform: translateY(-48%) rotate(-2.5deg) }
+  .fl:hover .fl-sheet.two,
+  .fl:focus-visible .fl-sheet.two { transform: translateY(-36%) rotate(3.5deg) }
+
+  /* the front flap, which the sheets slide out from behind */
+  .fl-front {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 66%;
+    z-index: 3;
+    border: 1px solid var(--_colors---black);
+    border-radius: 3px 12px 12px 12px;
+    background: var(--fl);
+    transform-origin: 50% 100%;
+    transition: transform .4s cubic-bezier(.2,.8,.26,1);
+  }
+  .fl:hover .fl-front,
+  .fl:focus-visible .fl-front { transform: rotateX(13deg) }
+
+  .fl-label {
+    position: absolute;
+    inset: auto 16px 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    color: var(--fl-ink);
+    font-family: Helvetica, Arial, sans-serif;
+  }
+  .fl-label b { font-size: 21px; font-weight: 400; line-height: 1.16 }
+  .fl-label i { font-style: normal; font-size: 12.5px; opacity: .76; line-height: 1.3 }
+
+  @media (max-width: 991px) {
+    .fl-wrap { width: 96vw; margin-left: 2vw }
+    .fl-grid { grid-template-columns: repeat(2, 1fr); gap: 28px 16px }
+    .fl-label b { font-size: 14px }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fl, .fl-front, .fl-sheet { transition: none }
+  }
+</style>
 </head>
 <body class="body-3">
   <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="w-nav"></div>
@@ -151,126 +272,99 @@
     <section class="section-5 aboutsection hedline about-head-line works">
       <div class="text-block-2 about headline hello">works section</div>
     </section>
-    <a href="homonovus.html" class="link-block-2 w-inline-block">
-      <section class="section-5 workssection _4">
-        <section class="section-5 workssection _3 homonovus">
-          <section data-w-id="9ee71a2a-276f-1ced-6f3e-e6ad654fd2c7" class="section-5 workssection _2 homonovus">
-            <section data-w-id="9ee71a2a-276f-1ced-6f3e-e6ad654fd2c8" class="section-5 workssection _1">
-              <div class="text-block-2 work">Homonovus</div>
-              <div class="text-block-2 work description">Creative Coding &amp; Installation</div>
-            </section>
-          </section>
-        </section>
-      </section>
-    </a>
-    <a href="emotion-in-type.html" class="link-block-2 dog-bed emotion w-inline-block">
-      <section class="section-5 workssection _4">
-        <section class="section-5 workssection _3 canvas dog type">
-          <section data-w-id="2cd28dec-579d-9e07-9e57-cba917fb9a86" class="section-5 workssection _2 canvas type">
-            <section data-w-id="2cd28dec-579d-9e07-9e57-cba917fb9a87" class="section-5 workssection _1 type">
-              <div class="text-block-2 work">Emotion in Type</div>
-              <div class="text-block-2 work description">Generative Typography &amp; NLP</div>
-            </section>
-          </section>
-        </section>
-      </section>
-    </a>
-    <a href="elsewhere.html" class="link-block-2 w-inline-block">
-      <section class="section-5 workssection _4">
-        <section class="section-5 workssection _3">
-          <section data-w-id="92041014-a757-9fd6-a484-4c16795621c3" class="section-5 workssection _2 swiss">
-            <section data-w-id="92041014-a757-9fd6-a484-4c16795621c4" class="section-5 workssection _1">
-              <div class="text-block-2 work">Elsewhere</div>
-              <div class="text-block-2 work description">illustration &amp; Visual Storytelling</div>
-            </section>
-          </section>
-        </section>
-      </section>
-    </a>
-    <a href="drift.html" class="link-block-2 w-inline-block">
-      <section class="section-5 workssection _4">
-        <section class="section-5 workssection _3 drift">
-          <section data-w-id="4dad41cf-4918-d484-49be-4639d35c9441" class="section-5 workssection _2 swiss drift">
-            <section data-w-id="4dad41cf-4918-d484-49be-4639d35c9442" class="section-5 workssection _1">
-              <div class="text-block-2 work">Drift Lamp</div>
-              <div class="text-block-2 work description">Lighting Design</div>
-            </section>
-          </section>
-        </section>
-      </section>
-    </a>
-    <a href="limitless-canvas.html" class="link-block-2 w-inline-block">
-      <section class="section-5 workssection _4">
-        <section class="section-5 workssection _3 canvas">
-          <section data-w-id="17348609-d1bf-d51b-c6e2-8f5f7026784e" class="section-5 workssection _2 canvas">
-            <section data-w-id="17348609-d1bf-d51b-c6e2-8f5f7026784f" class="section-5 workssection _1">
-              <div class="text-block-2 work">Limitless Canvas</div>
-              <div class="text-block-2 work description">Interactive &amp; Accessible Design </div>
-            </section>
-          </section>
-        </section>
-      </section>
-    </a>
-    <a href="modular-roll-dog-bed.html" class="link-block-2 dog-bed w-inline-block">
-      <section class="section-5 workssection _4">
-        <section class="section-5 workssection _3 canvas dog">
-          <section data-w-id="01c4effc-7dac-b4a4-0534-8128a2e99f85" class="section-5 workssection _2 canvas dog">
-            <section data-w-id="01c4effc-7dac-b4a4-0534-8128a2e99f86" class="section-5 workssection _1 dog">
-              <div class="text-block-2 work">Modular Roll Dog Bed</div>
-              <div class="text-block-2 work description">Adaptive Object Design</div>
-            </section>
-          </section>
-        </section>
-      </section>
-    </a>
-    <a href="extension-sleeve.html" class="link-block-2 dog-bed emotion w-inline-block">
-      <section class="section-5 workssection _4">
-        <section class="section-5 workssection _3 sleeve">
-          <section data-w-id="78b7a124-9a3c-d043-11f6-42a60e863c1f" class="section-5 workssection _2 sleeve">
-            <section data-w-id="78b7a124-9a3c-d043-11f6-42a60e863c20" class="section-5 workssection _1 type">
-              <div class="text-block-2 work">Dynamic Elbow Extension Splint</div>
-              <div class="text-block-2 work description">Human-Centered Engineering</div>
-            </section>
-          </section>
-        </section>
-      </section>
-    </a>
-    <a href="beta.html" class="link-block-2 w-inline-block">
-      <section class="section-5 workssection _4">
-        <section class="section-5 workssection _3 beta">
-          <section data-w-id="4c5d7c12-12f9-4c04-be17-891d72d46eb9" class="section-5 workssection _2 beta">
-            <section data-w-id="f6b5917b-2e5f-7d84-ccee-609a9281bcf0" class="section-5 workssection _1">
-              <div class="text-block-2 work">Beta</div>
-              <div class="text-block-2 work description">Branding &amp; 3D</div>
-            </section>
-          </section>
-        </section>
-      </section>
-    </a>
-    <a href="hagais-bread.html" class="link-block-2 w-inline-block">
-      <section class="section-5 workssection _4">
-        <section class="section-5 workssection _3 collected hagais">
-          <section data-w-id="d0f12b6c-700b-77a0-51a4-079147180ab2" class="section-5 workssection _2 pendulum">
-            <section data-w-id="d0f12b6c-700b-77a0-51a4-079147180ab3" class="section-5 workssection _1">
-              <div class="text-block-2 work">Hagi&#x27;s Bread</div>
-              <div class="text-block-2 work description">illustration</div>
-            </section>
-          </section>
-        </section>
-      </section>
-    </a>
-    <a href="collected-drawings.html" class="link-block-2 w-inline-block">
-      <section class="section-5 workssection _4">
-        <section class="section-5 workssection _3 collected">
-          <section data-w-id="53e15844-0c90-750c-4fbd-f5dc52961d63" class="section-5 workssection _2 collected">
-            <section data-w-id="53e15844-0c90-750c-4fbd-f5dc52961d64" class="section-5 workssection _1">
-              <div class="text-block-2 work">Collected Drawings</div>
-              <div class="text-block-2 work description">illustration</div>
-            </section>
-          </section>
-        </section>
-      </section>
-    </a>
+        <div class="fl-wrap">
+      <div class="fl-grid">
+          <a class="fl" style="--fl:var(--_colors---red);--fl-ink:var(--_colors---background)" href="homonovus.html" aria-label="Homonovus">
+            <span class="fl-tab">01</span>
+            <span class="fl-sheet" style="background-image:url('images/pg/homonovus-1.jpg')"></span>
+            <span class="fl-sheet two" style="background-image:url('images/pg/homonovus-2.jpg')"></span>
+            <span class="fl-front">
+              <span class="fl-label"><b>Homonovus</b><i>Creative Coding &amp; Installation</i></span>
+            </span>
+          </a>
+          <a class="fl" style="--fl:var(--_colors---blue);--fl-ink:var(--_colors---background)" href="emotion-in-type.html" aria-label="Emotion in Type">
+            <span class="fl-tab">02</span>
+            <span class="fl-sheet" style="background-image:url('images/pg/emotion-in-type-1.jpg')"></span>
+            <span class="fl-sheet two" style="background-image:url('images/pg/emotion-in-type-2.jpg')"></span>
+            <span class="fl-front">
+              <span class="fl-label"><b>Emotion in Type</b><i>Generative Typography &amp; NLP</i></span>
+            </span>
+          </a>
+          <a class="fl" style="--fl:var(--_colors---green);--fl-ink:var(--_colors---black)" href="elsewhere.html" aria-label="Elsewhere">
+            <span class="fl-tab">03</span>
+            <span class="fl-sheet" style="background-image:url('images/pg/elsewhere-1.jpg')"></span>
+            <span class="fl-sheet two" style="background-image:url('images/pg/elsewhere-2.jpg')"></span>
+            <span class="fl-front">
+              <span class="fl-label"><b>Elsewhere</b><i>Illustration &amp; Visual Storytelling</i></span>
+            </span>
+          </a>
+          <a class="fl" style="--fl:var(--_colors---purple);--fl-ink:var(--_colors---black)" href="drift.html" aria-label="Drift Lamp">
+            <span class="fl-tab">04</span>
+            <span class="fl-sheet" style="background-image:url('images/pg/drift-1.jpg')"></span>
+            <span class="fl-sheet two" style="background-image:url('images/pg/drift-2.jpg')"></span>
+            <span class="fl-front">
+              <span class="fl-label"><b>Drift Lamp</b><i>Lighting Design</i></span>
+            </span>
+          </a>
+          <a class="fl" style="--fl:var(--_colors---blue);--fl-ink:var(--_colors---background)" href="limitless-canvas.html" aria-label="Limitless Canvas">
+            <span class="fl-tab">05</span>
+            <span class="fl-sheet" style="background-image:url('images/pg/limitless-canvas-1.jpg')"></span>
+            <span class="fl-sheet two" style="background-image:url('images/pg/limitless-canvas-2.jpg')"></span>
+            <span class="fl-front">
+              <span class="fl-label"><b>Limitless Canvas</b><i>Interactive &amp; Accessible Design</i></span>
+            </span>
+          </a>
+          <a class="fl" style="--fl:var(--_colors---green);--fl-ink:var(--_colors---black);--sheet-pos:center" href="modular-roll-dog-bed.html" aria-label="Modular Roll Dog Bed">
+            <span class="fl-tab">06</span>
+            <span class="fl-sheet" style="background-image:url('images/pg/modular-roll-dog-bed-1.jpg')"></span>
+            <span class="fl-sheet two" style="background-image:url('images/pg/modular-roll-dog-bed-2.jpg')"></span>
+            <span class="fl-front">
+              <span class="fl-label"><b>Modular Roll Dog Bed</b><i>Adaptive Object Design</i></span>
+            </span>
+          </a>
+          <a class="fl" style="--fl:var(--_colors---purple);--fl-ink:var(--_colors---black)" href="extension-sleeve.html" aria-label="Dynamic Elbow Extension Splint">
+            <span class="fl-tab">07</span>
+            <span class="fl-sheet" style="background-image:url('images/pg/extension-sleeve-1.jpg')"></span>
+            <span class="fl-sheet two" style="background-image:url('images/pg/extension-sleeve-2.jpg')"></span>
+            <span class="fl-front">
+              <span class="fl-label"><b>Dynamic Elbow Extension Splint</b><i>Human-Centered Engineering</i></span>
+            </span>
+          </a>
+          <a class="fl" style="--fl:var(--_colors---red);--fl-ink:var(--_colors---background)" href="beta.html" aria-label="Beta">
+            <span class="fl-tab">08</span>
+            <span class="fl-sheet" style="background-image:url('images/pg/beta-1.jpg')"></span>
+            <span class="fl-sheet two" style="background-image:url('images/pg/beta-2.jpg')"></span>
+            <span class="fl-front">
+              <span class="fl-label"><b>Beta</b><i>Branding &amp; 3D</i></span>
+            </span>
+          </a>
+          <a class="fl" style="--fl:var(--_colors---green);--fl-ink:var(--_colors---black)" href="hagais-bread.html" aria-label="Hagi's Bread">
+            <span class="fl-tab">09</span>
+            <span class="fl-sheet" style="background-image:url('images/pg/hagais-bread-1.jpg')"></span>
+            <span class="fl-sheet two" style="background-image:url('images/pg/hagais-bread-2.jpg')"></span>
+            <span class="fl-front">
+              <span class="fl-label"><b>Hagi's Bread</b><i>Illustration</i></span>
+            </span>
+          </a>
+          <a class="fl" style="--fl:var(--_colors---purple);--fl-ink:var(--_colors---black)" href="collected-drawings.html" aria-label="Collected Drawings">
+            <span class="fl-tab">10</span>
+            <span class="fl-sheet" style="background-image:url('images/pg/collected-drawings-1.jpg')"></span>
+            <span class="fl-sheet two" style="background-image:url('images/pg/collected-drawings-2.jpg')"></span>
+            <span class="fl-front">
+              <span class="fl-label"><b>Collected Drawings</b><i>Illustration</i></span>
+            </span>
+          </a>
+          <a class="fl" style="--fl:var(--_colors---green);--fl-ink:var(--_colors---black)" href="words-apart.html" aria-label="Words Apart">
+            <span class="fl-tab">11</span>
+            <span class="fl-sheet" style="background-image:url('images/pg/words-apart-1.jpg')"></span>
+            <span class="fl-sheet two" style="background-image:url('images/pg/words-apart-2.jpg')"></span>
+            <span class="fl-front">
+              <span class="fl-label"><b>Words Apart</b><i>Data Visualization &amp; Research</i></span>
+            </span>
+          </a>
+      </div>
+    </div>
+
   </section>
   <div id="contact-section" data-w-id="b80417c4-828f-a855-5db1-3818ea699f8a">
     <section class="section-5 aboutsection hedline about-head-line talk-to-me">

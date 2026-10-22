@@ -4168,3 +4168,70 @@ img {
 .navbar-4 .div-block-17.about   { width: 12vw !important; }
 .navbar-4 .div-block-17.works   { width: 13.9vw !important; }
 .navbar-4 .div-block-17.contact { width: 14vw !important; }
+
+
+/* Words Apart: its own hero, and the film in the first gallery slot */
+.section-29.wa {
+  background-image: url('../images/bg/wa-hero.jpg');
+  background-repeat: no-repeat;
+}
+
+.item.wa-slot {
+  position: relative;
+}
+
+.wa-video {
+  display: block;
+  background: var(--_colors---black);
+  cursor: pointer;
+}
+
+.wa-play {
+  all: unset;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.wa-play[hidden] { display: none }
+
+.wa-play-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  height: 96px;
+  box-sizing: border-box;
+  border: 3px solid var(--_colors---black);
+  border-radius: 50%;
+  background: var(--_colors---background);
+  transition: transform .25s cubic-bezier(.2,.8,.26,1), background .25s ease;
+}
+
+/* the triangle */
+.wa-play-mark::after {
+  content: "";
+  width: 0;
+  height: 0;
+  margin-left: 8px;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 32px solid var(--_colors---black);
+}
+
+.wa-play:hover .wa-play-mark,
+.wa-play:focus-visible .wa-play-mark {
+  transform: scale(1.08);
+  background: var(--_colors---red);
+}
+.wa-play:focus-visible .wa-play-mark { outline: 3px solid var(--_colors---blue); outline-offset: 4px }
+
+@media screen and (max-width: 991px) {
+  .wa-play-mark { width: 70px; height: 70px }
+  .wa-play-mark::after {
+    border-top-width: 15px; border-bottom-width: 15px; border-left-width: 24px;
+    margin-left: 6px;
+  }
+}
