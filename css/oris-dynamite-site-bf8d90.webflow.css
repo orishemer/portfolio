@@ -4160,3 +4160,11 @@ img {
   flex: 0 0 auto;
   height: var(--tab-h, 25vh) !important;
 }
+
+/* The tabs move vertically only. Webflow's interaction also animates an
+   inline width on each one; these pin that to the width it settles on,
+   so a tab growing or shrinking never changes the rail's edges. */
+.navbar-4 .div-block-17.hello   { width: 13.7vw !important; }
+.navbar-4 .div-block-17.about   { width: 12vw !important; }
+.navbar-4 .div-block-17.works   { width: 13.9vw !important; }
+.navbar-4 .div-block-17.contact { width: 14vw !important; }
