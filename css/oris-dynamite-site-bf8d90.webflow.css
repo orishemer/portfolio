@@ -4170,19 +4170,29 @@ img {
 .navbar-4 .div-block-17.contact { width: 14vw !important; }
 
 
-/* Words Apart: its own hero, and the film in the first gallery slot */
+/* Words Apart: the film stands in for the hero, so it is the first
+   thing on the page */
 .section-29.wa {
-  background-image: url('../images/bg/wa-hero.jpg');
-  background-repeat: no-repeat;
-}
-
-.item.wa-slot {
   position: relative;
+  background-image: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* match the film, so it does not sit in black bands */
+  height: auto;
+  aspect-ratio: 1280 / 690;
+  max-height: 80vh;
+  font-size: initial;
 }
 
 .wa-video {
   display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   background: var(--_colors---black);
+  border: 2px solid var(--_colors---black);
+  border-radius: 14px;
   cursor: pointer;
 }
 
@@ -4234,4 +4244,56 @@ img {
     border-top-width: 15px; border-bottom-width: 15px; border-left-width: 24px;
     margin-left: 6px;
   }
+}
+
+
+/* Words Apart process: the boxes are a fixed 85vh on the other project
+   pages. Here they take their height from the text, and stretch so all
+   three match the tallest. */
+.section-23.wa-steps {
+  align-items: stretch;
+}
+
+.section-23.wa-steps .section-24 {
+  height: auto;
+  padding-top: 4vh;
+  padding-bottom: 3vh;
+  justify-content: flex-start;
+  grid-row-gap: 2vh;
+}
+
+
+/* the shared hero row is padded 178px to the left for the other
+   projects; the film sits centred instead */
+.section-30.wa-hero-row {
+  padding-left: 0;
+  justify-content: center;
+}
+
+
+/* Words Apart: collaborator credit and the link out to the live project */
+.wa-credit {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 18px;
+  margin-top: 1.4vh;
+}
+
+.wa-credit span {
+  opacity: .72;
+}
+
+.wa-link {
+  color: var(--_colors---blue);
+  text-decoration: none;
+  border-bottom: 1px solid var(--_colors---blue);
+  padding-bottom: 1px;
+  transition: color .2s ease, border-color .2s ease;
+}
+
+.wa-link:hover,
+.wa-link:focus-visible {
+  color: var(--_colors---red);
+  border-color: var(--_colors---red);
 }
