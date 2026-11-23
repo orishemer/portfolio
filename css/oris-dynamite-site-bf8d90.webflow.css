@@ -2010,33 +2010,41 @@ img {
 }
 
 .section-23 {
-  grid-column-gap: 1vh;
-  grid-row-gap: 1vh;
-  flex-flow: row;
+  /* grid, not flex: a column of flex items sized in vh does not report
+     its height to the row reliably, which left the box with a photograph
+     shorter than its own contents. Grid measures all three and gives
+     them one height. */
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: 1.4vh;
+  align-items: stretch;
   justify-content: center;
-  align-items: center;
   width: 90%;
   margin-right: 0;
   padding-top: 0;
   padding-bottom: 3vh;
-  display: flex;
 }
 
 .section-24 {
-  grid-column-gap: 8%;
-  grid-row-gap: 8%;
+  /* a percentage gap counts as zero while the browser works out the
+     natural height, then as 8% of the result: the box ends up shorter
+     than its own contents */
+  grid-column-gap: 14px;
+  grid-row-gap: 14px;
   background-color: #fffcea;
   border: 2px solid #30f;
   border-radius: 20px;
   flex-flow: column;
   justify-content: space-between;
   align-items: center;
-  width: 45%;
-  height: 85vh;
-  padding-top: 7vh;
-  padding-bottom: 1vw;
+  width: auto;
+  /* never shorter than what is in it, whatever the row works out */
+  min-height: max-content;
+  padding-top: 4vh;
+  padding-bottom: 3vh;
   display: flex;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .section-24.pend {
@@ -2082,8 +2090,10 @@ img {
 }
 
 .section-24.pen {
-  grid-column-gap: 5%;
-  grid-row-gap: 5%;
+  grid-column-gap: 14px;
+  grid-row-gap: 14px;  /* a percentage gap measures as zero while the
+     grid works out the row height, then as 5% of the result: the box with
+     a photograph ended up taller than the track and spilled out */
   justify-content: flex-start;
   align-items: center;
   width: 50%;
@@ -2091,8 +2101,10 @@ img {
 }
 
 .section-24.lamp {
-  grid-column-gap: 5%;
-  grid-row-gap: 5%;
+  grid-column-gap: 14px;
+  grid-row-gap: 14px;  /* a percentage gap measures as zero while the
+     grid works out the row height, then as 5% of the result: the box with
+     a photograph ended up taller than the track and spilled out */
   justify-content: flex-start;
   align-items: center;
   overflow: hidden;
@@ -4247,22 +4259,6 @@ img {
 }
 
 
-/* Words Apart process: the boxes are a fixed 85vh on the other project
-   pages. Here they take their height from the text, and stretch so all
-   three match the tallest. */
-.section-23.wa-steps {
-  align-items: stretch;
-}
-
-.section-23.wa-steps .section-24 {
-  height: auto;
-  padding-top: 4vh;
-  padding-bottom: 3vh;
-  justify-content: flex-start;
-  grid-row-gap: 2vh;
-}
-
-
 /* the shared hero row is padded 178px to the left for the other
    projects; the film sits centred instead */
 .section-30.wa-hero-row {
@@ -4296,4 +4292,348 @@ img {
 .wa-link:focus-visible {
   color: var(--_colors---red);
   border-color: var(--_colors---red);
+}
+
+
+/* the heading carries a 20vw right margin, which pushed the contact
+   links to the far edge; bring them in beside it */
+.section-5.contact .text-span-2 {
+  margin-right: 3vw;
+}
+
+/* A phone in the contact band, mid-ring: the handset floats off the
+   cradle and both of them shiver every few seconds. */
+.talk-phone {
+  position: relative;
+  flex: none;
+  align-self: flex-end;
+  width: 30%;
+  max-width: 300px;
+  min-width: 170px;
+  margin-bottom: -18px;
+  aspect-ratio: 1 / 1.05;
+}
+
+.talk-phone img {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* the stylesheet squares every img further up */
+  aspect-ratio: auto;
+}
+
+.tp-base {
+  position: absolute;
+  left: 8%;
+  bottom: 0;
+  width: 84%;
+  display: block;
+  line-height: 0;
+  transform-origin: 50% 100%;
+  animation: tp-shiver 6s ease-in-out infinite;
+}
+
+.tp-hand {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 78%;
+  display: block;
+  line-height: 0;
+  animation: tp-hover 3.4s ease-in-out infinite;
+}
+
+.tp-hand picture {
+  display: block;
+  line-height: 0;
+  transform-origin: 70% 40%;
+  animation: tp-shiver 6s ease-in-out infinite;
+}
+
+/* the slow lift, so it reads as off the hook rather than pasted on */
+@keyframes tp-hover {
+  0%, 100% { transform: translateY(0) rotate(-5deg) }
+  50%      { transform: translateY(-9px) rotate(-2deg) }
+}
+
+/* two short bursts, then a pause: the rhythm of a telephone ringing */
+@keyframes tp-shiver {
+  0%, 56%, 100%            { transform: translate3d(0, 0, 0) rotate(0deg) }
+  58%, 62%, 66%, 72%, 76%  { transform: translate3d(-2px, 0, 0) rotate(-1.4deg) }
+  60%, 64%, 70%, 74%       { transform: translate3d(2px, 0, 0) rotate(1.4deg) }
+  80%                      { transform: translate3d(0, 0, 0) rotate(0deg) }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tp-base, .tp-hand, .tp-hand picture { animation: none }
+}
+
+@media screen and (max-width: 991px) {
+  .talk-phone { width: 56%; margin-bottom: -10px }
+}
+
+.section-5.contact {
+  height: auto;
+  min-height: 40vh;
+  padding-top: 26px;
+  padding-bottom: 26px;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 991px) {
+  .section-5.contact { flex-flow: column; gap: 3vh }
+}
+
+
+/* Three objects loose inside the computer science card. They can be
+   dragged, but only within the card: the script clamps them to it and
+   the card clips anything that still pokes out. */
+.twin-section.cs-desk {
+  position: relative;
+  overflow: hidden;
+}
+
+.cs-toys {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.cs-toy {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--w);
+  /* the script turns them as they tumble */
+  transform: rotate(var(--a, 0deg));
+  display: block;
+  line-height: 0;
+  cursor: grab;
+  pointer-events: auto;
+  touch-action: none;
+  filter: drop-shadow(0 4px 7px rgba(0, 0, 0, .18));
+}
+
+.cs-toy img {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+  /* the stylesheet squares every img further up (img { aspect-ratio: 1 });
+     these keep their own shape, which the floor maths depends on */
+  aspect-ratio: auto;
+  /* the lift lives on the image, so the element's own box stays the
+     size the drag clamps against */
+  transition: transform .18s cubic-bezier(.2, .8, .26, 1);
+}
+
+.cs-toy:hover img { transform: scale(1.04) }
+.cs-toy.is-held { cursor: grabbing; z-index: 3 }
+.cs-toy.is-held img { transform: scale(1.08) rotate(-2deg); transition: none }
+
+/* the card's own text sits above the objects' resting places */
+.twin-section.cs-desk .text-block-2 {
+  position: relative;
+  z-index: 1;
+}
+
+@media (hover: none) {
+  .cs-toy:hover img { transform: none }
+}
+
+
+
+/* A process box can hold a photograph. Its height is settled by the
+   flex row before the image has loaded, so an unbounded image would
+   overflow and get clipped; cap it and keep its own proportions. */
+.section-24 img {
+  width: 100%;
+  height: 22vh;
+  max-height: 22vh;
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+/* .pen and .lamp re-declare clipping — and .pen a 50% width — at a higher
+   specificity than the plain .section-24 rule, which left those boxes half
+   as wide as their grid track */
+.section-24.pen,
+.section-24.lamp {
+  overflow: visible;
+  width: auto;
+}
+
+
+/* The stylesheet squares every img near the top (img { aspect-ratio: 1 }).
+   In the lightbox that cropped a portrait photograph into a square, so
+   enlarging an image cut it. Enlarged images keep their own shape. */
+.w-lightbox-view .w-lightbox-img,
+/* only the picture on show. ".w-lightbox img" used to catch the gallery's
+   own thumbnail, and ".w-lightbox-backdrop img" caught the little
+   thumbnails in the filmstrip, which widened the strip and shoved every
+   image after the first one ~80px sideways */
+.w-lightbox-view > figure > img {
+  /* only undo the square that `img { aspect-ratio: 1 }` imposes near the
+     top of this sheet. The lightbox measures each picture and writes its
+     own width and height inline; overriding those made the image resize
+     once more after it loaded, which read as a jump while arrowing. */
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+}
+
+/* The BETA strip was 60vh, so the tall posters were scaled down to a
+   fraction of the screen. The row and its items share one height, so
+   both have to grow together — otherwise the strip would overlap the
+   section beneath it. Every image keeps height:100% + contain, so a
+   picture is always whole in height and free in width. */
+/* the strip was running 60-75vh, which made every picture fill the
+   screen; one height for all of them, low enough to read as a row */
+.horizontal-scroll,
+.item,
+.item.swiss {
+  height: 52vh;
+}
+.hs-item.beta {
+  width: auto;
+  height: 100%;
+  max-height: 100%;
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+
+
+
+/* the Areas of Interest line carries the most of what she does, so it is
+   set larger than the running text around it */
+.text-block-2.about.text.interests {
+  font-size: 1.55rem;
+  line-height: 1.36;
+  max-width: 54ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 767px) {
+  .text-block-2.about.text.interests { font-size: 1.25rem }
+}
+
+/* A hand at the foot of the blue card throws a paper plane as the page
+   scrolls past. Two photographs of the same arm, cropped to one shared
+   frame so they register exactly: one holding the plane, one with the
+   fingers open. The scroll aims the arm once, swaps the photograph, and
+   sends the loose plane away. Every number comes from the script. */
+.section-5.launch-host {
+  position: relative;
+  overflow: visible;
+}
+.launch {
+  --p: 0;
+  --aim-x: 0px; --aim-r: 0deg;
+  --tx: 0px; --ty: 0px; --rot: 0deg; --sc: 1; --op: 0;
+  --hold: 1; --free: 0;
+  position: absolute;
+  right: 13%;
+  bottom: 0;
+  width: 21%;
+  max-width: 230px;
+  min-width: 130px;
+  pointer-events: none;
+  z-index: 3;
+}
+.launch img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;    /* the sheet squares every img near the top */
+  display: block;
+}
+/* the arm is cut off by the card's own edge and stays inside it.
+   overflow:hidden would also cut it at the left and right of its own
+   narrow box, which chopped the hand as it swung; clip-path cuts the
+   bottom alone and leaves the sides open. */
+.lh-clip {
+  display: block;
+  clip-path: inset(-200vh -200vw 0 -200vw);
+}
+.lh-arm {
+  display: block;
+  position: relative;
+  transform-origin: 14% 100%;   /* the elbow, down at the card's edge */
+  /* sunk well below the card's edge: only the hand and what it holds
+     clear the line */
+  transform: translate(var(--aim-x), 46%) rotate(var(--aim-r));
+}
+/* the two photographs sit on top of one another and are cross-faded */
+.lh-arm picture { display: block }
+.lh-arm .lh-free {
+  position: absolute;
+  inset: 0;
+}
+.lh-hold { opacity: var(--hold) }
+.lh-free { opacity: var(--free) }
+
+/* the loose plane: invisible while the held photograph still shows one */
+.lh-plane {
+  position: absolute;
+  left: 30.3%;
+  top: 0.4%;
+  width: 68.8%;
+  transform-origin: 20% 70%;
+  transform:
+    translate(var(--tx), var(--ty))
+    rotate(var(--rot))
+    scale(var(--sc));
+  opacity: var(--op);
+  filter: drop-shadow(-4px 6px 10px rgba(0,0,0,.22));
+  will-change: transform;
+  z-index: 2;
+}
+.lh-bob {
+  display: block;
+  animation: lh-bob 4.6s ease-in-out infinite;
+}
+@keyframes lh-bob {
+  0%, 100% { transform: translateY(0) rotate(0deg) }
+  50%      { transform: translateY(-4%) rotate(1deg) }
+}
+@media (max-width: 767px) {
+  .launch { width: 46%; min-width: 140px; right: 3% }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lh-bob { animation: none }
+}
+
+/* Experience: the same two-up cards as the degrees, without the desk of
+   objects, and a short line under each role */
+.section-5.aboutsection.twin.xp .twin-section.xp-card {
+  justify-content: center;
+  padding: 3.2vh 2vw;
+  min-height: 0;
+  height: auto;
+}
+.text-block-2.about.twin.xp-note {
+  max-width: 34ch;
+  margin-top: 1.2vh;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  text-transform: none;
+  opacity: .82;
+}
+/* both cards the height of the taller one, and no extra air around the row */
+.section-5.aboutsection.twin.xp {
+  align-items: stretch;
+  padding-top: 0;
+  padding-bottom: 0;
+  height: auto;
+  min-height: 0;
+}
+
+/* Nothing may widen the page sideways: the paper plane flying off to the
+   right, the fanned pages, anything later. Sideways scrolling slid the
+   content under the fixed rail on the left. `clip` rather than `hidden`,
+   so neither element becomes a scroll container and sticky/fixed parts
+   keep working; `hidden` is the fallback for older browsers. */
+html, body {
+  overflow-x: hidden;
+  overflow-x: clip;
+  overscroll-behavior-x: none;
 }
