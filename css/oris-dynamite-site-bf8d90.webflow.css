@@ -4637,3 +4637,102 @@ html, body {
   overflow-x: clip;
   overscroll-behavior-x: none;
 }
+
+/* The location line, with a little suitcase out at its left */
+.loc-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 184px;
+}
+/* the row spans the whole box, so "left" means the box's left and not the
+   middle of the narrow text column; the line keeps clear of the globe */
+.section-5.aboutsection.text:has(.loc-row) .w-container {
+  width: 100%;
+  max-width: none;
+}
+.loc-row { width: 100% }
+/* the same room on both sides, so the line sits in the middle of the box */
+.loc-row > .text-block-2 { padding: 0 calc(3% + 230px) }
+/* a tighter frame round it */
+.section-5.aboutsection.text:has(.loc-row) {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  /* the floating case may lift a few pixels past the frame; better that
+     than being sliced off by it */
+  overflow: visible;
+}
+.section-5.aboutsection.text:has(.loc-row) .w-container { overflow: visible }
+
+/* A small suitcase out at the left of the location line, with a luggage
+   tag for each city hung from its handle. Each tag swings from the top of
+   its string loop, the two on different clocks so they never move in
+   step. The loop points were read off the artwork: 63.1% across the TLV
+   tag, 23.1% across the Boston one, at the very top of each. */
+.trip {
+  position: absolute;
+  left: 3%;
+  top: 50%;
+  width: 213px;
+  /* the drift is written by js/tags.js: a slow rise and fall and a slight
+     rock about the bottom of the case */
+  transform: translateY(-50%) translateY(var(--bob, 0px)) rotate(var(--tilt, 0deg));
+  transform-origin: 50% 90%;
+}
+.trip img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;            /* the sheet squares every img near the top */
+  display: block;
+  user-select: none;
+}
+.trip-case { display: block }
+.trip-tag {
+  position: absolute;
+  z-index: 1;
+  filter: drop-shadow(1px 3px 3px rgba(0,0,0,.22));
+}
+.trip-tag.tlv {
+  /* behind Boston, tied lower down the handle's left post, so it shows
+     below and to the left of it */
+  left: 37%;
+  top: 13%;
+  width: 24%;
+  z-index: 0;      /* a portrait tag: wider than its share of the art so it
+                      reads as the same size as the Boston one */
+  transform-origin: 63.1% 0;
+  translate: -63.1% 0;
+}
+.trip-tag.bos {
+  /* both tags hang together from the left bend of the handle, Boston in
+     front, TLV behind it and a little lower */
+  left: 34%;
+  top: 3%;
+  width: 30%;
+  z-index: 1;
+  transform-origin: 23.1% 0;
+  translate: -23.1% 0;
+}
+/* the swing itself is a small pendulum in js/tags.js: scrolling nudges
+   the tags, they swing out and settle, as a tag on a carried case does */
+.trip-tag { rotate: var(--sw, 0deg) }
+/* The handle again, on its own, laid over the tags. Each string loop then
+   passes behind the bar and comes out below it in front of the case, so
+   the tag reads as threaded round the handle rather than stuck on it.
+   Same picture size and place as the case, so it registers exactly. */
+.trip-handle {
+  position: absolute;
+  inset: 0 0 auto 0;
+  z-index: 2;
+  pointer-events: none;
+}
+/* comes after the suitcase rules so it wins on a phone */
+@media (max-width: 767px) {
+  /* on a phone the suitcase stands above the line instead of beside it */
+  .loc-row { flex-direction: column; min-height: 0; padding: 1.5vh 0 }
+  .trip { position: relative; left: auto; top: auto;
+          transform: translateY(var(--bob, 0px)) rotate(var(--tilt, 0deg));
+          width: min(184px, 52vw); margin-bottom: 1.5vh }
+  .loc-row > .text-block-2 { padding: 0 16px; text-align: center }
+}
